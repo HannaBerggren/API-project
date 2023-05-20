@@ -22,14 +22,14 @@ class PostList(generics.ListCreateAPIView):
         filters.SearchFilter,
         DjangoFilterBackend,
     ]
-    search_fields = [
-        'owner__username',
-        'title',
-    ]
     filterset_fields = [
         'owner__followed__owner__profile',
         'likes__owner__profile',
         'owner__profile',
+    ]
+    search_fields = [
+        'owner__username',
+        'title',
     ]
     ordering_fields = [
         'likes_count',
